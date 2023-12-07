@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos de Imprenta</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c3e50; /* Fondo gris oscuro */
+            color: #ecf0f1; /* Texto blanco */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h2 {
+            color: #3498db; /* Azul claro */
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        li {
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ecf0f1; /* Texto blanco */
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #3498db; /* Borde azul claro */
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #3498db; /* Fondo azul claro al pasar el ratón */
+            color: #ffffff; /* Texto blanco al pasar el ratón */
+        }
+
+        #output {
+            margin-top: 20px;
+            background-color: #34495e; /* Fondo gris azulado */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #output.show {
+            opacity: 1;
+        }
+
+        #output img {
+            max-width: 100%; /* La imagen no superará su tamaño original */
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #output.show img.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>BIENVENIDO A NUESTRO SERVICIO DE IMPRENTA</h2>
+    <ul>
+        <li><a href="javascript:mostrarImagen('tarjetadevisita.jpeg')">Tarjetas de visita</a></li>
+        <li><a href="javascript:mostrarImagen('papeleriacorporativa.jpg')">Papelería corporativa</a></li>
+        <li><a href="javascript:mostrarImagen('volantes.jpg')">Folletos y volantes</a></li>
+        <li><a href="javascript:mostrarImagen('catalogo.jpg')">Catálogos</a></li>
+        <li><a href="javascript:mostrarImagen('lona.jpg')">Lonas y carteles</a></li>
+        <li><a href="javascript:mostrarImagen('calendario.gif')">Calendarios</a></li>
+        <li><a href="javascript:mostrarImagen('etiquetas.jpg')">Adhesivos y etiquetas</a></li>
+        <li><a href="javascript:mostrarImagen('matpromocional.avif')">Material promocional</a></li>
+        <li><a href="javascript:mostrarImagen('impengranformato.png')">Impresión en gran formato</a></li>
+        <li><a href="javascript:mostrarImagen('invitaciones.png')">Invitaciones</a></li>
+        <li><a href="javascript:mostrarImagen('embalajes.webp')">Embalajes personalizados</a></li>
+        <li><a href="javascript:mostrarImagen('impresionaldigital.jpg')">Impresión digital y offset</a></li>
+    </ul>
+    <div id="output"></div>
+
+    <script>
+        function mostrarImagen(imagen) {
+            var rutaImagen = "imagenes/" + imagen; // Ajusta la ruta según la ubicación de tus imágenes
+
+            var outputDiv = document.getElementById('output');
+            var imageElement = document.createElement('img');
+            imageElement.src = rutaImagen;
+            imageElement.alt = imagen;
+
+            outputDiv.innerHTML = '';
+            outputDiv.appendChild(imageElement);
+
+            setTimeout(function () {
+                outputDiv.classList.add('show');
+                imageElement.classList.add('show');
+            }, 100);
+        }
+    </script>
+
+</body>
+
+</html>
